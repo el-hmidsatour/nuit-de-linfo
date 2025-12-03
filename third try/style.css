@@ -1,0 +1,188 @@
+/* =========================================
+   1. GLOBAL SETTINGS
+   ========================================= */
+:root {
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --text-color: #ffffff;
+    
+    /* Colors */
+    --nav-bg-scrolled: rgba(20, 20, 20, 0.95);
+    --btn-bg: #ff6b6b;
+    --btn-text: #ffffff;
+
+    /* Card Glass Effect */
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 255, 255, 0.2);
+    --card-hover: rgba(255, 255, 255, 0.25);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+    /* This makes the "jump" to sections smooth */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    overflow-x: hidden;
+    /* Fallback color if Vanta doesn't load */
+    background-color: #4B667C; 
+}
+
+#vanta-bg {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: all 0.4s ease;
+}
+
+nav.scrolled {
+    padding: 15px 50px;
+    background: var(--nav-bg-scrolled);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.logo { font-size: 1.5rem; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+
+.nav-links ul { display: flex; list-style: none; gap: 30px; }
+.nav-links a { text-decoration: none; color: white; font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: var(--btn-bg); }
+
+/* =========================================
+   3. SECTIONS
+   ========================================= */
+.full-screen-section {
+    min-height: 100vh; /* Each section takes full screen height */
+    padding: 100px 50px; /* Top padding accounts for fixed navbar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertical */
+}
+
+.center-content {
+    align-items: center;
+    text-align: center;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.glass-panel {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 20px;
+    max-width: 800px;
+}
+
+h1 { font-size: 4rem; margin-bottom: 20px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+p { font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px; }
+
+/* =========================================
+   4. FLASH CARDS
+   ========================================= */
+.card-grid {
+    display: grid;
+    /* Auto-fit: fits as many cards as possible, minimum 200px wide */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: default;
+    
+    /* Center text inside the card */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px; /* Fixed height for flashcard look */
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: var(--card-hover);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-color: rgba(255,255,255,0.4);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: var(--btn-bg);
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.card p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    opacity: 0.9;
+}
+
+.btn {
+    padding: 12px 30px;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+.btn:hover { opacity: 0.9; transform: scale(1.05); }
+
+/* =========================================
+   5. FOOTER
+   ========================================= */
+footer {
+    padding: 50px;
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    nav { padding: 15px 20px; }
+    .nav-links { display: none; } /* Hide menu on small screens for now */
+    h1 { font-size: 2.5rem; }
+    .card-grid { grid-template-columns: 1fr; } /* 1 card per row on mobile */
+}

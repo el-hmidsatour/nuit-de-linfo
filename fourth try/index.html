@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Vanta Website</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <!-- DEPENDENCIES FOR VANTA TRUNK (p5.js + Vanta) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.trunk.min.js"></script>
+</head>
+<body>
+
+    <div id="vanta-bg"></div>
+
+    <nav id="navbar">
+        <div class="logo">MyBrand</div>
+        <div class="nav-links">
+            <ul>
+                <!-- links must match section IDs -->
+                <li><a href="#part1" class="active">Intro</a></li>
+                <li><a href="#part2">Flash Cards</a></li>
+                <li><a href="#part3">About</a></li>
+                <li><a href="#part4">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="part1" class="full-screen-section center-content">
+        <h1>Part 1: The Intro</h1>
+        <p>Scroll down. Notice how the "Intro" line stays lit until you hit Part 2.</p>
+        <a href="#part2" class="btn">Go to Cards</a>
+    </section>
+
+    <section id="part2" class="full-screen-section">
+        <h2 class="section-title">Part 2: Random Facts</h2>
+        <div class="card-grid">
+            <div class="card"><h3>#1 Space</h3><p>Neutron stars can spin 600 times per second.</p></div>
+            <div class="card"><h3>#2 Code</h3><p>The first computer bug was an actual moth.</p></div>
+            <div class="card"><h3>#3 Earth</h3><p>The Earth is not a perfect sphere.</p></div>
+            <div class="card"><h3>#4 Human</h3><p>Your nose can remember 50,000 different scents.</p></div>
+            <div class="card"><h3>#5 Ocean</h3><p>We have explored less than 5% of the ocean.</p></div>
+            <div class="card"><h3>#6 Tech</h3><p>The first 1GB hard drive weighed over 500 pounds.</p></div>
+            <div class="card"><h3>#7 Animal</h3><p>Octopuses have three hearts and blue blood.</p></div>
+            <div class="card"><h3>#8 Time</h3><p>A day on Venus is longer than a year on Venus.</p></div>
+            <div class="card">
+                <h3>#9 Food</h3>
+                <p>Honey is the only food that never spoils.</p>
+            </div>
+            <div class="card">
+                <h3>#10 Logic</h3>
+                <p>This statement is false. (Think about it!)</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="part3" class="full-screen-section center-content">
+        <div class="glass-panel">
+            <h2>Part 3: About Us</h2>
+            <p>We specialize in creating lightweight, interactive web experiences.</p>
+        </div>
+    </section>
+
+    <!-- Note: I changed footer to section ID part4 so the highlighting works easily -->
+    <footer>
+        <h4>About Us</h4>
+        <p>We build simple, elegant websites with dynamic effects.</p>
+        <br>
+        <p>&copy; 2023 MyBrand. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
